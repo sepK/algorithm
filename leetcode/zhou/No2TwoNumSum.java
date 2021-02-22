@@ -8,7 +8,7 @@ import com.sun.org.apache.xerces.internal.dom.PSVIAttrNSImpl;
  * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头
  * 输入：l1 = [2,4,3], l2 = [5,6,4]
  * 输出：[7,0,8]
- * 解释：342 + 465 = 807.
+ * 解释：342 + 465 = 807
  * @author Blade
  * @date 2021/2/22 16:31
  */
