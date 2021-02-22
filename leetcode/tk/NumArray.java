@@ -1,3 +1,5 @@
+package tk;
+
 /**
  * @author t.k
  * @date 2020/7/10 14:33
@@ -47,7 +49,7 @@ public class NumArray {
 
 
     /**
-     * ["NumArray","sumRange","update","update","update","update","sumRange"]
+     * ["tk.NumArray","sumRange","update","update","update","update","sumRange"]
      [[[5,18,13]],[0,2],[1,-1],[2,3],[0,5],[0,-4],[0,2]]
      * @param args
      */
