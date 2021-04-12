@@ -1,6 +1,7 @@
 package tk.algorithm.sort;
 
-import utils.Utils;
+
+import tk.algorithm.utils.Utils;
 
 /**
  * 计数排序

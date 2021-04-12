@@ -1,4 +1,4 @@
-package utils;
+package tk.algorithm.utils;
 
 /**
  * @author t.k
