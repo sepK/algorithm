@@ -16,8 +16,10 @@ public class QuickSort {
 
 
     //算法导论视频方法
-    private static void quickSort(int[] a, int left, int right) {
-        if (left >= right) return;
+    public static void quickSort(int[] a, int left, int right) {
+        if (left >= right) {
+            return;
+        }
 
         int partition = partition(a, left);
         partition = randomPartition(a, left, right);
@@ -46,7 +48,12 @@ public class QuickSort {
     public static int randomPartition(int[] a, int left, int right) {
         int i = left, j = i + 1;
         //随机化快排 key值取数组中随机的元素
-        int randomKeyIndex = ThreadLocalRandom.current().nextInt(left, right + 1);
+        int randomKeyIndex = 0;
+        try {
+            randomKeyIndex = ThreadLocalRandom.current().nextInt(left, right);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         int key = a[randomKeyIndex];
         Utils.swap(a, left, randomKeyIndex);
         while (j < a.length && i + 1 < a.length) {

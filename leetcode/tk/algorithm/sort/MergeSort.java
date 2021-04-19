@@ -10,15 +10,17 @@ import tk.algorithm.utils.Utils;
  */
 public class MergeSort {
 
-    private static void mergeSort(int[] a, int left, int right, int[] finalArrays) {
-        if (left >= right) return;
+    public static void mergeSort(int[] a, int left, int right, int[] finalArrays) {
+        if (left >= right) {
+            return;
+        }
         int mid = (left + right) / 2;
         mergeSort(a, left, mid, finalArrays);
         mergeSort(a, mid + 1, right, finalArrays);
         merge(a, left, mid, right, finalArrays);
     }
 
-    private static void merge(int[] a, int left, int mid, int right, int[] finalArrays) {
+    public static void merge(int[] a, int left, int mid, int right, int[] finalArrays) {
         int r1 = mid + 1;
         int tIndex = left;
         int cIndex = left;

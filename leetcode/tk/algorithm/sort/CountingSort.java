@@ -12,7 +12,7 @@ import tk.algorithm.utils.Utils;
 public class CountingSort {
 
 
-    private static void countingSort(int[] a, int[] b, int k) {
+    public static void countingSort(int[] a, int[] b, int k) {
         int[] temp = new int[k + 1];
         for (int i = 0; i < a.length; i++) {
             temp[a[i]] = temp[a[i]] + 1;
