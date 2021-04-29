@@ -6,7 +6,7 @@ package tk;
  */
 public class StrStr_28 {
 
-    public static int strStr(String haystack, String needle) {
+    public static int strStr1(String haystack, String needle) {
         if (needle == null || needle.length() == 0) {
             return 0;
         }
@@ -14,7 +14,7 @@ public class StrStr_28 {
             return -1;
         }
         int[] next = new int[haystack.length() + 1];
-        getNext1(haystack, next);
+        getNext(needle, next);
         int i = 0, k = 0;
         while (i < haystack.length()) {
             if (k == -1 || haystack.charAt(i) == needle.charAt(k)) {
@@ -45,24 +45,8 @@ public class StrStr_28 {
         }
     }
 
-    public static void getNext1(String haystack, int[] next) {
-        int j = 0;
-        next[0] = 0;
-        for (int i = 1; i < haystack.length(); i++) {
-            while (j > 0 && haystack.charAt(i) != haystack.charAt(j)) {
-                j = next[j - 1];
-            }
-            if (haystack.charAt(i) == haystack.charAt(j)) {
-                j++;
-            }
-            //更新next数组
-            next[i] = j;
-        }
-    }
-
 
     public static void main(String[] args) {
-        //todo 有bug
-        strStr("mississippi", "issip");
+        strStr1("mississippi", "issip");
     }
 }
