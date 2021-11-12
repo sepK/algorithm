@@ -69,6 +69,23 @@ public class QuickSort {
         return i;
     }
 
+    public static int[] partition(int[] arr, int L, int R, int p) {
+        int less = L - 1;
+        int more = R + 1;
+        while(L < more) {
+            //小于主元的值和less位置的值交换
+            if(arr[L] < p) {
+                Utils.swap(arr, ++less, L++);
+            } else if (arr[L] > p) {
+                //大于主元的值和more位置的值交换
+                Utils.swap(arr, --more, L);
+            } else {
+                L++;
+            }
+        }
+        return new int[] { less + 1, more - 1 };
+    }
+
     public static void main(String[] args) {
         int[] a = {26, 5, 98, 108, 28, 99, 100, 56, 34, 1, -1, 3, 8, 12, 67, 6, 9, 11, 13};
         quickSort(a, 0, a.length - 1);

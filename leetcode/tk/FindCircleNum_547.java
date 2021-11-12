@@ -49,7 +49,7 @@ public class FindCircleNum_547 {
     }
 
     public static void main(String[] args) {
-        int[][] isConnected = new int[][]{{1,0,0,1},{0,1,1,0},{0,1,1,1},{1,0,1,1}};
+        int[][] isConnected = new int[][]{{1, 0, 0, 1}, {0, 1, 1, 0}, {0, 1, 1, 1}, {1, 0, 1, 1}};
         findCircleNum(isConnected);
     }
 }
