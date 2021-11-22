@@ -24,54 +24,6 @@ public class TreeNode {
         this.right = right;
     }
 
-    /**
-     * 先序递归遍历二叉树
-     */
-    public void preOrderTraver(TreeNode node) {
-        if (node == null) {
-            return;
-        }
-        System.out.println(node.val);
-        if (node.left != null) {
-            preOrderTraver(node.left);
-        }
-        if (node.right != null) {
-            preOrderTraver(node.right);
-        }
-    }
-
-    /**
-     * 中序递归遍历二叉树
-     */
-    public void InOrderTraver(TreeNode node) {
-        if (node == null) {
-            return;
-        }
-        if (node.left != null) {
-            InOrderTraver(node.left);
-        }
-        System.out.println(node.val);
-        if (node.right != null) {
-            InOrderTraver(node.right);
-        }
-    }
-
-    /**
-     * 后序递归遍历二叉树
-     */
-    public void afterOrderTraver(TreeNode node) {
-        if (node == null) {
-            return;
-        }
-        if (node.left != null) {
-            afterOrderTraver(node.left);
-        }
-        if (node.right != null) {
-            afterOrderTraver(node.right);
-        }
-        System.out.println(node.val);
-    }
-
     //非递归先序遍历二叉树
     public void pOrderTraver(TreeNode node) {
         if (node == null) {

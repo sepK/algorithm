@@ -42,4 +42,13 @@ public class Utils {
         }
         return newArray;
     }
+
+    public int binarySearch(int[] arr, int left, int right, int target) {
+        if(left >= right) {
+            return left;
+        }
+        int mid = left + (right - left) << 1;
+
+        return 0;
+    }
 }
