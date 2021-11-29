@@ -3,7 +3,9 @@ package tk.algorithm.utils;
 import commom.TreeNode;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author t.k
@@ -33,7 +35,7 @@ public class TreeUtils {
             if (++index >= nums.length) {
                 break;
             }
-             temp = new TreeNode(nums[index]);
+            temp = new TreeNode(nums[index]);
             cur.right = temp;
             queue.offer(temp);
             index++;
@@ -42,42 +44,41 @@ public class TreeUtils {
     }
 
     /**
-     * 先序遍历
-     * @param head
+     * 左侧树枝一撸到底
      */
-    public static void preTravelTree(TreeNode head) {
-        if (head == null) {
-            return;
+    private static void pushLeftBranch(TreeNode p, Stack<TreeNode> stk) {
+        while (p != null) {
+            //todo 前序遍历代码位置
+            stk.push(p);
+            p = p.left;
         }
-        System.out.print(head.val + "\t");
-        preTravelTree(head.left);
-        preTravelTree(head.right);
     }
 
-    /**
-     * 中序遍历
-     * @param head
-     */
-    public static void inTravelTree(TreeNode head) {
-        if (head == null) {
-            return;
-        }
-        inTravelTree(head.left);
-        System.out.print(head.val + "\t");
-        inTravelTree(head.right);
-    }
+    public static List<Integer> traverse(TreeNode root) {
+        // 指向上一次遍历完的子树根节点
+        TreeNode visited = null;
+        Stack<TreeNode> stk = new Stack<>();
+        // 开始遍历整棵树
+        pushLeftBranch(root, stk);
 
-    /**
-     * 后序遍历
-     * @param head
-     */
-    public static void afterTravelTree(TreeNode head) {
-        if (head == null) {
-            return;
+        while (!stk.isEmpty()) {
+            TreeNode p = stk.peek();
+
+            // p 的左子树被遍历完了，且右子树没有被遍历过
+            if (p.left == null || p.left == visited) {
+                // todo 中序遍历代码位置
+                if (p.right != visited) {
+                    pushLeftBranch(p.right, stk);
+                }
+            }
+            // p 的右子树被遍历完了
+            if (p.right == null || p.right == visited) {
+                // todo 后序遍历代码位置
+                //以 p 为根的子树被遍历完了，出栈 visited 指针指向 p
+                visited = stk.pop();
+            }
         }
-        afterTravelTree(head.left);
-        afterTravelTree(head.right);
-        System.out.print(head.val + " \t");
+        return null;
     }
 
     public static void main(String[] args) {
@@ -85,10 +86,11 @@ public class TreeUtils {
         int maxSize = 7;
         //最大测试数据
         int maxNum = 20;
-        int[] arr1 = ArrayLogarithmGeneratorUtils.generateRandomArray(maxSize, maxNum);
-        TreeNode treeNode = toTree(arr1);
-        Utils.printArray(arr1);
-        afterTravelTree(treeNode);
+//        int[] arr = ArrayLogarithmGeneratorUtils.generateRandomArray(maxSize, maxNum);
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        TreeNode treeNode = toTree(arr);
+        Utils.printArray(arr);
+        traverse(treeNode);
         System.out.println();
     }
 }

@@ -1,5 +1,7 @@
 package commom;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -24,7 +26,11 @@ public class TreeNode {
         this.right = right;
     }
 
-    //非递归先序遍历二叉树
+    /**
+     * 非递归先序遍历二叉树
+     *
+     * @param node
+     */
     public void pOrderTraver(TreeNode node) {
         if (node == null) {
             return;
@@ -43,7 +49,11 @@ public class TreeNode {
         }
     }
 
-    //非递归中序遍历二叉树
+    /**
+     * 非递归中序遍历二叉树
+     *
+     * @param head
+     */
     public void iOrderTraver(TreeNode head) {
         if (head == null) {
             return;
@@ -61,4 +71,29 @@ public class TreeNode {
         }
     }
 
+    /**
+     * 二叉树的层级遍历
+     *
+     * @param root
+     */
+    public void levelTravel(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int n = queue.size();
+            for (int i = 0; i < n; i++) {
+                TreeNode node = queue.poll();
+                //todo 逻辑写这里
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+        }
+    }
 }
