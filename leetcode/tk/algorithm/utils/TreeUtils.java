@@ -56,7 +56,7 @@ public class TreeUtils {
 
     public static List<Integer> traverse(TreeNode root) {
         // 指向上一次遍历完的子树根节点
-        TreeNode visited = null;
+        TreeNode visited = new TreeNode(-1);
         Stack<TreeNode> stk = new Stack<>();
         // 开始遍历整棵树
         pushLeftBranch(root, stk);
@@ -66,8 +66,8 @@ public class TreeUtils {
 
             // p 的左子树被遍历完了，且右子树没有被遍历过
             if (p.left == null || p.left == visited) {
-                // todo 中序遍历代码位置
                 if (p.right != visited) {
+                    // todo 中序遍历代码位置
                     pushLeftBranch(p.right, stk);
                 }
             }

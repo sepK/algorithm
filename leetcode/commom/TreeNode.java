@@ -52,22 +52,21 @@ public class TreeNode {
     /**
      * 非递归中序遍历二叉树
      *
-     * @param head
+     * @param root
      */
-    public void iOrderTraver(TreeNode head) {
-        if (head == null) {
+    public void iOrderTraver(TreeNode root) {
+        if (root == null) {
             return;
         }
         Stack<TreeNode> stack = new Stack<>();
-        while (!stack.isEmpty() || head != null) {
-            if (head != null) {
-                stack.push(head);
-                head = head.left;
-            } else {
-                head = stack.pop();
-                System.out.print(head.val + " ");
-                head = head.right;
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
             }
+            root = stack.pop();
+            System.out.print(root.val + " ");
+            root = root.right;
         }
     }
 
