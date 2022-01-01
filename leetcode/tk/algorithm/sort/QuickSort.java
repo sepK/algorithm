@@ -27,11 +27,18 @@ public class QuickSort {
         quickSort(a, partition + 1, right);
     }
 
+    /**
+     * 1、选择当前的left位置作为主元
+     * 2、和后续的范围的值进行比较 设i = left, j = i + 1;
+     * 2.1、当主元大于num[j] 交换i + 1 和 j 位置的数值 i++,j++;
+     * 2.2、当主元小于等于num[j] j++;
+     * 3、交换 left 和 i 位置上的数;
+     */
     public static int partition(int[] a, int left) {
         int i = left, j = i + 1;
         int key = a[left];
         while (j < a.length && i + 1 < a.length) {
-            if (key >= a[j]) {
+            if (key > a[j]) {
                 int temp = a[i + 1];
                 a[i + 1] = a[j];
                 a[j] = temp;
@@ -72,9 +79,9 @@ public class QuickSort {
     public static int[] partition(int[] arr, int L, int R, int p) {
         int less = L - 1;
         int more = R + 1;
-        while(L < more) {
+        while (L < more) {
             //小于主元的值和less位置的值交换
-            if(arr[L] < p) {
+            if (arr[L] < p) {
                 Utils.swap(arr, ++less, L++);
             } else if (arr[L] > p) {
                 //大于主元的值和more位置的值交换
@@ -83,11 +90,11 @@ public class QuickSort {
                 L++;
             }
         }
-        return new int[] { less + 1, more - 1 };
+        return new int[]{less + 1, more - 1};
     }
 
     public static void main(String[] args) {
-        int[] a = {26, 5, 98, 108, 28, 99, 100, 56, 34, 1, -1, 3, 8, 12, 67, 6, 9, 11, 13};
+        int[] a = {7, 6, 5, 4, 3, 2, 1};
         quickSort(a, 0, a.length - 1);
         Utils.printArray(a);
     }

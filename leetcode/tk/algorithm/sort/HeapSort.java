@@ -11,15 +11,20 @@ import tk.algorithm.utils.Utils;
 public class HeapSort {
 
     public static void maxHeapify(int[] a, int heapSize, int i) {
+        //左孩子节点
         int left = i << 1;
+        //右孩子节点
         int right = left + 1;
         int largestIndex = i;
+        //判断左孩子是不是比自己大
         if (left <= heapSize && a[i] > a[left]) {
             largestIndex = left;
         }
+        //判断右孩子是不是比自己大
         if (right <= heapSize && a[largestIndex] > a[right]) {
             largestIndex = right;
         }
+        //如果最大的值不是自己 交换 递归调整堆结构
         if (largestIndex != i) {
             Utils.swap(a, largestIndex, i);
             maxHeapify(a, heapSize, largestIndex);
